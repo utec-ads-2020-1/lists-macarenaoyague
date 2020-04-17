@@ -9,16 +9,16 @@ using namespace std;
 template <typename T>
 class stack {
 	T* data;
-	int top;
+	int top; //índice de último elemento insertado
 	int capacity;
 
 public:
 	stack(int size = MAX);
-	~stack();   		
+	~stack();
 
-	void push(T);
-	int pop();
-	int top();
+    void push(T);
+    void pop();
+    T peak();
 
 	int size();
 	bool empty();

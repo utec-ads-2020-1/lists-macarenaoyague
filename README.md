@@ -2,7 +2,7 @@
 
 You have to implement all the constructors & methods of the different structures:
 
-* [top] - Returns the top element.
+* [peak] - Returns the top element.
 * [front] - Returns the front element.
 * [back] - Returns the back element.
 * [push] - Adds an element.
