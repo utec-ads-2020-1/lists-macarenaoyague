@@ -1,0 +1,72 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/main.cpp
+iostream
+-
+test/tester.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/test/tester.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/mock/mocker.h
+random
+-
+type_traits
+-
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/circular.h
+list.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/list.h
+iterators/bidirectional_iterator.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/iterators/bidirectional_iterator.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/forward.h
+list.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/list.h
+iterators/forward_iterator.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/iterators/forward_iterator.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/iterators/bidirectional_iterator.h
+../node.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/node.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/iterators/forward_iterator.h
+../node.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/node.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/linked.h
+list.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/list.h
+iterators/bidirectional_iterator.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/iterators/bidirectional_iterator.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/list.h
+node.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/node.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/node.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/test/tester.cpp
+tester.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/test/tester.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/test/tester.h
+stdexcept
+-
+iostream
+-
+assert.h
+-
+../mock/mocker.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/mock/mocker.h
+../structures/lists/forward.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/forward.h
+../structures/lists/linked.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/linked.h
+../structures/lists/circular.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/circular.h
+

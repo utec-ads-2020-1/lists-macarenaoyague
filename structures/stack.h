@@ -14,14 +14,48 @@ class stack {
 
 public:
 	stack(int size = MAX);
-	~stack();
+	~stack(); //
 
-    void push(T);
+    void push(T data);
     void pop();
     T peak();
 
 	int size();
 	bool empty();
 };
+
+
+
+
+template<typename T>
+stack<T>::stack(int size) {
+
+}
+
+template<typename T>
+void stack<T>::push(T data) {
+
+}
+
+template<typename T>
+void stack<T>::pop() {
+
+}
+
+template<typename T>
+T stack<T>::peak() {
+    return nullptr;
+}
+
+template<typename T>
+int stack<T>::size() {
+    return 0;
+}
+
+template<typename T>
+bool stack<T>::empty() {
+    return false;
+}
+
 
 #endif

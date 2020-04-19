@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/lists_macarenaoyague.dir/mock/mocker.cpp.o CMakeFiles/lists_macarenaoyague.dir/test/tester.cpp.o CMakeFiles/lists_macarenaoyague.dir/main.cpp.o  -o lists_macarenaoyague 
