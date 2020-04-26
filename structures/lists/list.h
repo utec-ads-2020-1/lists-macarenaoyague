@@ -17,10 +17,10 @@ class List {
 
         virtual T front() = 0;
         virtual T back() = 0;
-        virtual void push_front(T element) = 0; //chequear forward  y linked para añadir la segunda
+        virtual void push_front(T element) = 0;
         virtual void push_back(T element) = 0;
-        virtual void pop_front() = 0; //añadir si es que solo hay 1 elemento ----implement popTheOnlyNode
-        virtual void pop_back() = 0; //añadit si es que solo hay 1 elemento
+        virtual void pop_front() = 0;
+        virtual void pop_back() = 0;
         virtual T operator[](int) = 0;
         virtual bool empty() = 0;
         virtual int size() = 0;
