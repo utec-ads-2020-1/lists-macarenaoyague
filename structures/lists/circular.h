@@ -26,23 +26,13 @@ public:
     void addFirst(T element);
     Node<T>* searchNode(int position);
 
-    // BidirectionalIterator<T> begin();
-    // BidirectionalIterator<T> end();
+    BidirectionalIterator<T> begin();
+    BidirectionalIterator<T> end();
 
     string name() {
         return "Circular Linked List";
     }
 
-    /**
-     * Merges x into the list by transferring all of its elements at their respective
-     * ordered positions into the container (both containers shall already be ordered).
-     *
-     * This effectively removes all the elements in x (which becomes empty), and inserts
-     * them into their ordered position within container (which expands in size by the number
-     * of elements transferred). The operation is performed without constructing nor destroying
-     * any element: they are transferred, no matter whether x is an lvalue or an rvalue,
-     * or whether the value_type supports move-construction or not.
-    */
     void merge(CircularLinkedList<T>& list2);
 };
 
@@ -233,4 +223,16 @@ void CircularLinkedList<T>::merge(CircularLinkedList<T> &list2) {
     }
 }
 
+template<typename T>
+BidirectionalIterator<T> CircularLinkedList<T>::begin() {
+    return BidirectionalIterator<T>(this->head);
+}
+
+template<typename T>
+BidirectionalIterator<T> CircularLinkedList<T>::end() {
+    auto *temp = new Node<T>;
+    temp->next = nullptr;
+    temp->prev =this->tail;
+    return BidirectionalIterator<T>(temp);
+}
 #endif
