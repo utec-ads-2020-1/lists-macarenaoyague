@@ -144,7 +144,28 @@ void ForwardList<T>::clear() {
 
 template<typename T>
 void ForwardList<T>::sort() {
-    //
+    int N = size();
+    int size = N;
+    bool somethingChange;
+    T temp;
+    while (N != 1)
+    {
+        N = N/2;
+        do{
+            somethingChange = false;
+            for (int i = 0; i<size-N; i++)
+            {
+                if (searchNode(i)->data > searchNode(i+N)->data)
+                {
+                    temp = searchNode(i)->data;
+                    searchNode(i)->data = searchNode(i+N)->data;
+                    searchNode(i+N)->data = temp;
+                    if (!somethingChange)
+                        somethingChange = true;
+                }
+            }
+        }while (somethingChange);
+    }
 }
 
 template<typename T>
@@ -216,6 +237,5 @@ template<typename T>
 ForwardIterator<T> ForwardList<T>::end() {
     return ForwardIterator<T>(this->tail);
 }
-
 
 #endif

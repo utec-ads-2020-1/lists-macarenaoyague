@@ -32,7 +32,6 @@ public:
     string name() {
         return "Circular Linked List";
     }
-
     void merge(CircularLinkedList<T>& list2);
 };
 
@@ -148,7 +147,28 @@ void CircularLinkedList<T>::clear() {
 
 template<typename T>
 void CircularLinkedList<T>::sort() {
-
+    int N = size();
+    int size = N;
+    bool somethingChange;
+    T temp;
+    while (N != 1)
+    {
+        N = N/2;
+        do{
+            somethingChange = false;
+            for (int i = 0; i<size-N; i++)
+            {
+                if (searchNode(i)->data > searchNode(i+N)->data)
+                {
+                    temp = searchNode(i)->data;
+                    searchNode(i)->data = searchNode(i+N)->data;
+                    searchNode(i+N)->data = temp;
+                    if (!somethingChange)
+                        somethingChange = true;
+                }
+            }
+        }while (somethingChange);
+    }
 }
 
 template<typename T>
