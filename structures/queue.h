@@ -7,12 +7,11 @@ using namespace std;
 
 #define MAX 1000 
 
-// TODO: Implement all methods
 template <typename T>
 class queue {
-	T* data;
-	int top;
-	int capacity;
+    T* data;
+    int top;
+    int capacity;
 
 public:
     queue(int size = MAX);
@@ -23,8 +22,8 @@ public:
     T front();
     T back();
 
-	int size();
-	bool empty();
+    int size();
+    bool empty();
 
     void duplicateCapacity();
 };
@@ -32,9 +31,13 @@ public:
 template<typename T>
 queue<T>::queue(int size) {
     capacity = size;
-    T arr[capacity] = {};
-    this->data = arr;
+    data = new T[capacity];
     top = 0;
+}
+
+template<typename T>
+queue<T>::~queue() {
+    delete data;
 }
 
 template<typename T>
@@ -47,26 +50,27 @@ void queue<T>::push(T data) {
 
 template<typename T>
 void queue<T>::pop() {
-    if (empty())
-        throw std::out_of_range("Empty queue");
-    else
+    if (!empty())
     {
         top--;
         for (int i = 0; i<top; i++)
             this->data[i] = this->data[i+1];
-        this->data[top] = 0;
+        this->data[top] = 0; //borrar?
     }
 }
 
 template<typename T>
 T queue<T>::front() {
-   // return this->data[];
+    if (!empty())
+        return data[0];
+    throw std::out_of_range ("Empty queue");
 }
 
 template<typename T>
 T queue<T>::back() {
-    //
-    return nullptr;
+    if (!empty())
+        return data[top-1];
+    throw std::out_of_range ("Empty queue");
 }
 
 template<typename T>
@@ -82,10 +86,11 @@ bool queue<T>::empty() {
 template<typename T>
 void queue<T>::duplicateCapacity(){
     capacity *= 2;
-    T array [capacity] = {};
+    T *temp = new T[capacity];
     for (int i = 0; i<capacity/2; i++)
-        array [i] = this->data[i];
-    this->data = array;
+        temp [i] = this->data[i];
+    delete data;
+    this->data = temp;
 }
 
 #endif
