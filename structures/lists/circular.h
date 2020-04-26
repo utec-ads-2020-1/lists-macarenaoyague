@@ -241,6 +241,7 @@ void CircularLinkedList<T>::merge(CircularLinkedList<T> &list2) {
         list2.head = nullptr;
         list2.tail = nullptr;
     }
+    sort();
 }
 
 template<typename T>

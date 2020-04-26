@@ -235,6 +235,7 @@ void LinkedList<T>::merge(LinkedList<T> &list2) {
         list2.head = nullptr;
         list2.tail = nullptr;
     }
+    sort();
 }
 
 template<typename T>

@@ -208,7 +208,6 @@ Node<T> *ForwardList<T>::searchNode(int position) {
 
 template<typename T>
 void ForwardList<T>::merge(ForwardList<T> &list2) {
-    //ordenar ambos
     if (!list2.empty())
     {
         if (!empty())
@@ -226,6 +225,7 @@ void ForwardList<T>::merge(ForwardList<T> &list2) {
         list2.head = nullptr;
         list2.tail = nullptr;
     }
+    sort();
 }
 
 template<typename T>
