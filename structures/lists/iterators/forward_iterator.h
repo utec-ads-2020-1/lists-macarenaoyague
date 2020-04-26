@@ -3,23 +3,22 @@
 
 #include "../node.h"
 
-// TODO: Implement all methods
-template <typename T> 
+template <typename T>
 class ForwardIterator {
-    private:
-        Node<T> *current;
+private:
+    Node<T> *current;
 
-    public:
-        ForwardIterator();
-        ForwardIterator(Node<T>* node);
+public:
+    ForwardIterator();
+    ForwardIterator(Node<T>* node);
 
-        ForwardIterator<T> operator=(ForwardIterator<T> iterator);
+    ForwardIterator<T> operator=(ForwardIterator<T> iterator);
 
-        bool operator!=(ForwardIterator<T> iterator);
+    bool operator!=(ForwardIterator<T> iterator);
 
-        ForwardIterator<T> operator++();
+    ForwardIterator<T> operator++();
 
-        T operator*();
+    T operator*();
 };
 
 template<typename T>
@@ -34,7 +33,8 @@ ForwardIterator<T>::ForwardIterator(Node<T> * node) {
 
 template<typename T>
 ForwardIterator<T> ForwardIterator<T>::operator=(ForwardIterator<T> iterator) {
-    return ForwardIterator<T>(iterator.current);
+    current=iterator.current;                //equals the iterator to another
+    return ForwardIterator<T>(current);     //but the definition of this is to return a new iterator
 }
 
 template<typename T>
@@ -46,7 +46,8 @@ template<typename T>
 ForwardIterator<T> ForwardIterator<T>::operator++() {
     if (current == nullptr)
         throw std::out_of_range ("Pointing to null. There is no next iterator.");
-    return ForwardIterator<T>(current->next);
+    current=current->next;                     //advance one position
+    return ForwardIterator<T>(current);       //but the definition of this is to return a new iterator
 }
 
 template<typename T>

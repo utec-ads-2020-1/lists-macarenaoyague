@@ -26,8 +26,8 @@ public:
     void addFirst(T element);
     Node<T>* searchNode(int position);
 
-    // ForwardIterator<T> begin();
-    // ForwardIterator<T> end();
+    ForwardIterator<T> begin();
+    ForwardIterator<T> end();
 
     string name() {
         return "Forward List";
@@ -206,5 +206,16 @@ void ForwardList<T>::merge(ForwardList<T> &list2) {
         list2.tail = nullptr;
     }
 }
+
+template<typename T>
+ForwardIterator<T> ForwardList<T>::begin() {
+    return ForwardIterator<T>(this->head);
+}
+
+template<typename T>
+ForwardIterator<T> ForwardList<T>::end() {
+    return ForwardIterator<T>();
+}
+
 
 #endif
