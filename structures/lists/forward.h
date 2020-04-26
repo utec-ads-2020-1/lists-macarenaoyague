@@ -7,57 +7,47 @@
 // TODO: Implement all methods
 template <typename T>
 class ForwardList : public List<T> {
-    public:
-        ForwardList() : List<T>() {}
+public:
+    ForwardList() : List<T>() {}
 
-        T front();
-        T back();
-        void push_front(T element);
-        void push_back(T element);
-        void pop_front();
-        void pop_back();
-        T operator[](int position);
-        bool empty();
-        int size();
-        void clear();
-        void sort();
-        void reverse();
+    T front();
+    T back();
+    void push_front(T element);
+    void push_back(T element);
+    void pop_front();
+    void pop_back();
+    T operator[](int position);
+    bool empty();
+    int size();
+    void clear();
+    void sort();
+    void reverse();
 
-        void addFirst(T element);
-        Node<T>* searchNode(int position);
+    void addFirst(T element);
+    Node<T>* searchNode(int position);
 
-        ForwardIterator<T> begin();
-	    ForwardIterator<T> end();
+    // ForwardIterator<T> begin();
+    // ForwardIterator<T> end();
 
-        string name() {
-            return "Forward List";
-        }
+    string name() {
+        return "Forward List";
+    }
 
-        /**
-         * Merges x into the list by transferring all of its elements at their respective 
-         * ordered positions into the container (both containers shall already be ordered).
-         * 
-         * This effectively removes all the elements in x (which becomes empty), and inserts 
-         * them into their ordered position within container (which expands in size by the number 
-         * of elements transferred). The operation is performed without constructing nor destroying
-         * any element: they are transferred, no matter whether x is an lvalue or an rvalue, 
-         * or whether the value_type supports move-construction or not.
-        */
-        void merge(ForwardList<T>&);
+    void merge(ForwardList<T>& list2);
 };
 
 template<typename T>
 T ForwardList<T>::front() {
     if (!empty())
         return this->head->data;
-    //throw exception
+    throw std::out_of_range ("Empty list");
 }
 
 template<typename T>
 T ForwardList<T>::back() {
     if (!empty())
         return this->tail->data;
-    //throw exception
+    throw std::out_of_range ("Empty list");
 }
 
 template<typename T>
@@ -68,10 +58,10 @@ void ForwardList<T>::push_front(T element) {
     }
     else
     {
-        Node<T>* temporal = this->head;
-        this->head = new Node<T>;
-        this->head->data = element;
-        this->head->next = temporal;
+        auto temporal = new Node<T>;
+        temporal->data = element;
+        temporal->next = this->head;
+        this->head = temporal;
     }
     this->nodes++;
 }
@@ -84,27 +74,28 @@ void ForwardList<T>::push_back(T element) {
     }
     else
     {
-        Node<T>* temporal = this->tail;
-        this->tail = new Node<T>;
-        this->tail->data = element;
-        this->tail->next = nullptr;
-        temporal->next = this->tail;
+        auto temporal = new Node<T>;
+        temporal->data = element;
+        temporal->next = nullptr;
+        this->tail->next = temporal;
+        this->tail = temporal;
     }
     this->nodes++;
-
 }
 
 template<typename T>
 void ForwardList<T>::pop_front() {
-    if (empty())
+    auto temporal = this->head;
+    if(size() == 1)
     {
-        //error
+        delete temporal;
+        this->head = nullptr;
+        this->tail = nullptr;
+        this->nodes--;
     }
-    else
+    else if (size()>1)
     {
-        Node<T>* temporal = this->head;
         this->head = this->head->next;
-        temporal->killSelf();
         delete temporal;
         this->nodes--;
     }
@@ -112,16 +103,18 @@ void ForwardList<T>::pop_front() {
 
 template<typename T>
 void ForwardList<T>::pop_back() {
-    if (empty())
+    auto temporal = this->tail;
+    if(size() == 1)
     {
-        //error
+        delete temporal;
+        this->head = nullptr;
+        this->tail = nullptr;
+        this->nodes--;
     }
-    else
+    if (size()>1)
     {
-        Node<T>* temporal = this->tail;
-        this->tail = searchNode(this->nodes-2);
+        this->tail = searchNode(this->nodes-2); //cambiar x iterator :) pero esta bien
         this->tail->next = nullptr;
-        temporal->killSelf();
         delete temporal;
         this->nodes--;
     }
@@ -134,11 +127,7 @@ T ForwardList<T>::operator[](int position) {
 
 template<typename T>
 bool ForwardList<T>::empty() {
-    //arreglar?
-    if (this->head == nullptr)
-        return true;
-    else
-        return false;
+    return this->head == nullptr;
 }
 
 template<typename T>
@@ -148,8 +137,9 @@ int ForwardList<T>::size() {
 
 template<typename T>
 void ForwardList<T>::clear() {
-    for (int i = 0; i<this->nodes; i++)
-        pop_front();
+    auto current = this->head;
+
+
 }
 
 template<typename T>
@@ -159,24 +149,22 @@ void ForwardList<T>::sort() {
 
 template<typename T>
 void ForwardList<T>::reverse() {
-    Node<T> *current = this->tail;
-    for (int i = this->nodes-1; i>0; i++)
+    T tempSecondHalf;
+    for (int i = 0; i<size()/2; i++)
     {
-        current->next = searchNode(i-1);
-        current = current->next;
+        tempSecondHalf = searchNode(this->nodes -1 -i)->data;
+        searchNode(this->nodes -1 -i)->data = searchNode(i)->data;
+        searchNode(i)->data = tempSecondHalf;
     }
-    current->next = nullptr;
-    current = this->head;
-    this->head = this->tail;
-    this->tail = current;
 }
 
 template<typename T>
 void ForwardList<T>::addFirst(T element) {
-    this->head = new Node <T>;
-    this->tail = this->head;
-    this->head->data = element;
-    this->head->next = nullptr;
+    auto temp = new Node <T>;
+    temp->data = element;
+    temp->next = nullptr;
+    this->head = temp;
+    this->tail = temp;
 }
 
 template<typename T>
@@ -184,11 +172,12 @@ Node<T> *ForwardList<T>::searchNode(int position) {
     Node<T> * returnNode;
     if (position > this->nodes - 1 or position < 0)
     {
-        //error
+        throw std::out_of_range ("Error in range");
     }
-    //if is tail
     else
     {
+        if (position == size()-1)
+            return this->tail;
         returnNode = this->head;
         for (int i = 1; i<=position; i++)
             returnNode = returnNode->next;
@@ -197,8 +186,25 @@ Node<T> *ForwardList<T>::searchNode(int position) {
 }
 
 template<typename T>
-void ForwardList<T>::merge(ForwardList<T> &) {
-    //
+void ForwardList<T>::merge(ForwardList<T> &list2) {
+    //ordenar ambos
+    if (!list2.empty())
+    {
+        if (!empty())
+        {
+            this->tail->next = list2.head;
+            this->tail = list2.tail;
+        }
+        else
+        {
+            this->head = list2.head;
+            this->tail = list2.tail;
+        }
+        this->nodes += list2.nodes;
+        list2.nodes = 0;
+        list2.head = nullptr;
+        list2.tail = nullptr;
+    }
 }
 
 #endif

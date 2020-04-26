@@ -33,4 +33,10 @@ class List {
         virtual Node<T>* searchNode(int position) = 0;
 };
 
+template<typename T>
+List<T>::~List() {
+    delete head;
+    delete tail;
+}
+
 #endif
