@@ -237,7 +237,7 @@ ForwardIterator<T> ForwardList<T>::begin() {
 
 template<typename T>
 ForwardIterator<T> ForwardList<T>::end() {
-    return ForwardIterator<T>(this->tail);
+    return ForwardIterator<T>(this->tail->next);
 }
 
 template<typename T>

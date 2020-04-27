@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/main.cpp
-iostream
--
-test/tester.h
-/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/test/tester.h
-
 /Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/mock/mocker.h
 random
 -
@@ -49,6 +43,10 @@ node.h
 /Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/node.h
 
 /Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/structures/lists/node.h
+
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/test/tester.cpp
+tester.h
+/Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/test/tester.h
 
 /Users/macarena/Documents/ALGORITMOS/Semana 2/lists-macarenaoyague/test/tester.h
 stdexcept
