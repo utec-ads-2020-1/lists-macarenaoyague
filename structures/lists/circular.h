@@ -11,6 +11,9 @@ public:
     CircularLinkedList() : List<T>() {}
 
     T front();
+
+    virtual ~CircularLinkedList();
+
     T back();
     void push_front(T element);
     void push_back(T element);
@@ -142,7 +145,8 @@ int CircularLinkedList<T>::size() {
 
 template<typename T>
 void CircularLinkedList<T>::clear() {
-
+    while (this->head != nullptr)
+        pop_front();
 }
 
 template<typename T>
@@ -256,4 +260,10 @@ BidirectionalIterator<T> CircularLinkedList<T>::end() {
     temp->prev =this->tail;
     return BidirectionalIterator<T>(temp);
 }
+
+template<typename T>
+CircularLinkedList<T>::~CircularLinkedList() {
+    clear();
+}
+
 #endif

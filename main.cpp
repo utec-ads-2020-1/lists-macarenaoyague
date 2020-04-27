@@ -7,7 +7,6 @@ int main(int argc, char *argv[]) {
     cout << "===========================================================" << endl;
     cout << "\tLists Practice" << endl;
     cout << "===========================================================" << endl << endl;
-
-    //Tester::execute();
+    Tester::execute();
     //return EXIT_SUCCESS;
 }

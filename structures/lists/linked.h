@@ -21,6 +21,9 @@ public:
     int size();
     void clear();
     void sort();
+
+    virtual ~LinkedList();
+
     void reverse();
 
     void addFirst(T element);
@@ -139,7 +142,8 @@ int LinkedList<T>::size() {
 
 template<typename T>
 void LinkedList<T>::clear() {
-
+    while (this->head != nullptr)
+        pop_front();
 }
 
 template<typename T>
@@ -250,4 +254,10 @@ BidirectionalIterator<T> LinkedList<T>::end() {
     temp->prev =this->tail;
     return BidirectionalIterator<T>(temp);
 }
+
+template<typename T>
+LinkedList<T>::~LinkedList() {
+    clear();
+}
+
 #endif

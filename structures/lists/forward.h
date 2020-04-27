@@ -11,6 +11,9 @@ public:
     ForwardList() : List<T>() {}
 
     T front();
+
+    virtual ~ForwardList();
+
     T back();
     void push_front(T element);
     void push_back(T element);
@@ -137,9 +140,8 @@ int ForwardList<T>::size() {
 
 template<typename T>
 void ForwardList<T>::clear() {
-    auto current = this->head;
-
-
+    while (this->head != nullptr)
+        pop_front();
 }
 
 template<typename T>
@@ -236,6 +238,11 @@ ForwardIterator<T> ForwardList<T>::begin() {
 template<typename T>
 ForwardIterator<T> ForwardList<T>::end() {
     return ForwardIterator<T>(this->tail);
+}
+
+template<typename T>
+ForwardList<T>::~ForwardList() {
+    clear();
 }
 
 #endif
