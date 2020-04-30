@@ -37,6 +37,7 @@ template<typename T>
 BidirectionalIterator<T> BidirectionalIterator<T>::operator=(BidirectionalIterator<T> iterator) {
     current=iterator.current;                //equals the iterator to another
     return BidirectionalIterator<T>(current);     //but the definition of this is to return a new iterator
+    // Estás creando un nuevo iterador, con this retornas el mismo 
 }
 
 template<typename T>

@@ -22,6 +22,6 @@ int main(int argc, char *argv[]) {
     ++it;
     cout<<endl<<(it!=list1->end());
 
-    //Tester::execute();
+    Tester::execute();
     //return EXIT_SUCCESS;
 }

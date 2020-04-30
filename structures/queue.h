@@ -37,7 +37,7 @@ queue<T>::queue(int size) {
 
 template<typename T>
 queue<T>::~queue() {
-    delete data;
+    delete data;// []
 }
 
 template<typename T>

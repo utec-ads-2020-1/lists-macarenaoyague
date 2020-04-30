@@ -79,7 +79,7 @@ void stack<T>::duplicateCapacity(){
 
 template<typename T>
 stack<T>::~stack() {
-    delete this->data;
+    delete this->data; // []
 }
 
 #endif

@@ -35,6 +35,7 @@ class List {
 
 template<typename T>
 List<T>::~List() {
+    // Esto no es necesario
     delete head;
     delete tail;
 }

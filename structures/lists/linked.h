@@ -189,7 +189,7 @@ void LinkedList<T>::addFirst(T element) {
     this->head = temp;
     this->tail = temp;
     this->head->data = element;
-    this->head->next = nullptr;
+    this->head->next = nullptr; // Podrías pasarlo a un constructor
     this->head->prev = nullptr;
 }
 
@@ -249,6 +249,7 @@ BidirectionalIterator<T> LinkedList<T>::begin() {
 
 template<typename T>
 BidirectionalIterator<T> LinkedList<T>::end() {
+    // Lo malo que siempre vas a crear un nuevo nodo para cada iterador, cuándo se borra?
     auto *temp = new Node<T>;
     temp->next = nullptr;
     temp->prev =this->tail;
